@@ -14,9 +14,9 @@ interface SelectQueryInterface extends QueryInterface, From, Join, Group, Where,
     /**
      * @param string $col
      * @param string|null $alias
-     * @return SelectQueryInterface|SelectQuery
+     * @return self
      */
-    public function column(string $col, ?string $alias = null): SelectQueryInterface;
+    public function column(string $col, ?string $alias = null): self;
 
     /**
      * @param string ...$cols
