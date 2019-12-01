@@ -28,7 +28,7 @@ class SelectQuery extends AbstractQuery implements SelectQueryInterface
      * @param string|null $alias
      * @return SelectQueryInterface
      */
-    public function column(string $col, ?string $alias = null): SelectQueryInterface
+    public function column(string $col, ?string $alias = null): SelectQuery
     {
         $newCol = ($alias === null) ? $col : "$col AS $alias";
         if (! \in_array($newCol, $this->columns)) {
@@ -41,7 +41,7 @@ class SelectQuery extends AbstractQuery implements SelectQueryInterface
      * @param string ...$cols
      * @return SelectQueryInterface
      */
-    public function columns(string ...$cols): SelectQueryInterface
+    public function columns(string ...$cols): SelectQuery
     {
         foreach ($cols as $col) {
             $this->column($col);
