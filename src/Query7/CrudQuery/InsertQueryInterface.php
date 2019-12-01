@@ -3,25 +3,26 @@ declare(strict_types=1);
 namespace Query7\CrudQuery;
 
 use Query7\Clause\OnceTableInterface;
+use Query7\CrudQuery\InsertQuery;
 
 interface InsertQueryInterface extends QueryInterface, OnceTableInterface
 {
     
     /**
      * @param string $table
-     * @return InsertQueryInterface
+     * @return InsertQueryInterface|InsertQuery
      */
     public function into(string $table): InsertQueryInterface;
 
     /**
      * @param string ...$col
-     * @return InsertQueryInterface
+     * @return InsertQueryInterface|InsertQuery
      */
     public function column(string ...$col): InsertQueryInterface;
 
     /**
      * @param any ...$vals
-     * @return InsertQueryInterface
+     * @return InsertQueryInterface|InsertQuery
      */
     public function values(...$vals): InsertQueryInterface;
 

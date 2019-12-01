@@ -26,7 +26,7 @@ class SelectQuery extends AbstractQuery implements SelectQueryInterface
     /**
      * @param string $col
      * @param string|null $alias
-     * @return SelectQueryInterface
+     * @return SelectQueryInterface|SelectQuery
      */
     public function column(string $col, ?string $alias = null): SelectQuery
     {
@@ -39,7 +39,7 @@ class SelectQuery extends AbstractQuery implements SelectQueryInterface
 
     /**
      * @param string ...$cols
-     * @return SelectQueryInterface
+     * @return SelectQueryInterface|SelectQuery
      */
     public function columns(string ...$cols): SelectQuery
     {

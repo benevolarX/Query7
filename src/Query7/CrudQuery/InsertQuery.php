@@ -20,7 +20,7 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
 
     /**
      * @param string $table
-     * @return InsertQueryInterface
+     * @return InsertQueryInterface|InsertQuery
      */
     public function into(string $table): InsertQueryInterface
     {
@@ -29,7 +29,7 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
 
     /**
      * @param string ...$col
-     * @return InsertQueryInterface
+     * @return InsertQueryInterface|InsertQuery
      */
     public function column(string ...$col): InsertQueryInterface
     {
@@ -39,7 +39,7 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
 
     /**
      * @param any ...$vals
-     * @return InsertQueryInterface
+     * @return InsertQueryInterface|InsertQuery
      */
     public function values(...$vals): InsertQueryInterface
     {
