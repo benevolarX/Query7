@@ -2,7 +2,9 @@
 declare(strict_types=1);
 namespace Query7\CrudQuery;
 
-interface InsertQueryInterface extends QueryInterface
+use Query7\Clause\OnceTableInterface;
+
+interface InsertQueryInterface extends QueryInterface, OnceTableInterface
 {
     
     /**

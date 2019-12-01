@@ -28,13 +28,4 @@ interface GroupByHavingInterface
      */
     public function generateGroupByHaving(): string;
 
-    /**
-     * @return string
-     */
-    public function generateGroupBy(): string;
-
-    /**
-     * @return string
-     */
-    public function generateHaving(): string;
 }

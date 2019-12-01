@@ -2,7 +2,9 @@
 declare(strict_types=1);
 namespace Query7\CrudQuery;
 
-interface UpdateQueryInterface extends QueryInterface
+use Query7\Clause\{LimitInterface, OnceTableInterface, OrderByInterface, WhereInterface};
+
+interface UpdateQueryInterface extends QueryInterface, OnceTableInterface, WhereInterface, OrderByInterface, LimitInterface
 {
 
     /**
@@ -15,4 +17,5 @@ interface UpdateQueryInterface extends QueryInterface
      * @return string
      */
     public function generateSet(): string;
+    
 }

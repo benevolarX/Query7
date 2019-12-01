@@ -29,14 +29,6 @@ interface JoinInterface
     public function rightJoin(string $table, ?string $condition = null);
 
     /**
-     * @param string $type
-     * @param string $table
-     * @param string|null $condition
-     * @return QueryInterface
-     */
-    public function join(string $type, string $table, ?string $condition);
-
-    /**
      * @return string
      */
     public function generateJoin(): string;

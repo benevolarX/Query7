@@ -2,7 +2,9 @@
 declare(strict_types=1);
 namespace Query7\CrudQuery;
 
-interface SelectQueryInterface extends QueryInterface
+use Query7\Clause\{FromInterface, GroupByHavingInterface, JoinInterface, OrderByInterface, WhereInterface};
+
+interface SelectQueryInterface extends QueryInterface, FromInterface, JoinInterface, GroupByHavingInterface, WhereInterface, OrderByInterface
 {
     /**
      * @param string $col
