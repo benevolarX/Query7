@@ -32,5 +32,4 @@ interface InsertQueryInterface extends QueryInterface
      * @return string
      */
     public function generateValues(): string;
-    
 }

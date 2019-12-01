@@ -6,9 +6,9 @@ namespace Tests\Query7\Util;
 use PHPUnit\Framework\TestCase;
 use Query7\Util\Condition;
 
-class ConditionTest extends TestCase 
+class ConditionTest extends TestCase
 {
-    public function testNull(): void 
+    public function testNull(): void
     {
         $null = " IS NULL";
         $this->assertEquals($null, Condition::IS_NULL);
@@ -16,14 +16,14 @@ class ConditionTest extends TestCase
         $this->assertEquals($notNull, Condition::IS_NOT_NULL);
     }
 
-    public function testLike(): void 
+    public function testLike(): void
     {
         $condition = Condition::like("hello");
         $this->assertEquals(\is_string($condition), true);
         $this->assertEquals($condition, " LIKE hello");
     }
 
-    public function testBetween(): void 
+    public function testBetween(): void
     {
         $sql = " BETWEEN :min AND :max";
         $condition = Condition::between(":min", ":max");
@@ -31,7 +31,7 @@ class ConditionTest extends TestCase
         $this->assertEquals($sql, $condition);
     }
 
-    public function testIn(): void 
+    public function testIn(): void
     {
         $tab = [1, 2, 3];
         $sql = " IN ( 1, 2, 3 )";
@@ -41,46 +41,45 @@ class ConditionTest extends TestCase
         $this->assertEquals($condition, $sql);
     }
 
-    public function testEqual(): void 
+    public function testEqual(): void
     {
         $condition = Condition::isEqual(5);
         $sql = " = 5";
         $this->assertEquals($sql, $condition);
     }
 
-    public function testNotEqual(): void 
+    public function testNotEqual(): void
     {
         $condition = Condition::isNotEqual(5);
         $sql = " <> 5";
         $this->assertEquals($sql, $condition);
     }
 
-    public function testInf(): void 
+    public function testInf(): void
     {
         $condition = Condition::isInf(5);
         $sql = " < 5";
         $this->assertEquals($sql, $condition);
     }
 
-    public function testInfOrEqual(): void 
+    public function testInfOrEqual(): void
     {
         $condition = Condition::isInfOrEqual(5);
         $sql = " <= 5";
         $this->assertEquals($sql, $condition);
     }
 
-    public function testSup(): void 
+    public function testSup(): void
     {
         $condition = Condition::isSup(5);
         $sql = " > 5";
         $this->assertEquals($sql, $condition);
     }
 
-    public function testSupOrEqual(): void 
+    public function testSupOrEqual(): void
     {
         $condition = Condition::isSupOrEqual(5);
         $sql = " >= 5";
         $this->assertEquals($sql, $condition);
     }
-
 }

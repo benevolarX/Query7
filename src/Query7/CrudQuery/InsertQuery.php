@@ -91,5 +91,4 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
         $vals = $this->generateValues();
         return "INSERT INTO $table $cols VALUES ( $vals ) ";
     }
-    
 }

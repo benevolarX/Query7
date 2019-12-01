@@ -2,7 +2,12 @@
 declare(strict_types=1);
 namespace Query7\CrudQuery;
 
-use Query7\Clause\{FromTrait, JoinTrait, GroupByHavingTrait, WhereTrait, OrderByTrait, LimitTrait};
+use Query7\Clause\FromTrait;
+use Query7\Clause\JoinTrait;
+use Query7\Clause\GroupByHavingTrait;
+use Query7\Clause\WhereTrait;
+use Query7\Clause\OrderByTrait;
+use Query7\Clause\LimitTrait;
 
 class SelectQuery extends AbstractQuery implements SelectQueryInterface
 {
@@ -69,5 +74,4 @@ class SelectQuery extends AbstractQuery implements SelectQueryInterface
         $limit = $this->generateLimit();
         return "SELECT $cols $fromTable $join $groupByHaving $where $orderBy $limit";
     }
-    
 }

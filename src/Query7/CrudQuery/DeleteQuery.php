@@ -2,7 +2,10 @@
 declare(strict_types=1);
 namespace Query7\CrudQuery;
 
-use Query7\Clause\{OnceTableTrait, WhereTrait, OrderByTrait, LimitTrait};
+use Query7\Clause\OnceTableTrait;
+use Query7\Clause\WhereTrait;
+use Query7\Clause\OrderByTrait;
+use Query7\Clause\LimitTrait;
 
 class DeleteQuery extends AbstractQuery implements DeleteQueryInterface
 {

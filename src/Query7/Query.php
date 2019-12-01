@@ -2,7 +2,10 @@
 declare(strict_types=1);
 namespace Query7;
 
-use Query7\CrudQuery\{InsertQuery, SelectQuery, UpdateQuery, DeleteQuery};
+use Query7\CrudQuery\InsertQuery;
+use Query7\CrudQuery\SelectQuery;
+use Query7\CrudQuery\UpdateQuery;
+use Query7\CrudQuery\DeleteQuery;
 
 final class Query
 {
@@ -40,5 +43,4 @@ final class Query
     {
         return new DeleteQuery();
     }
-
 }

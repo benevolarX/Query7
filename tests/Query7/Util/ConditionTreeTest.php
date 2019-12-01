@@ -7,16 +7,16 @@ use PHPUnit\Framework\TestCase;
 use Query7\Util\Leaf;
 use Query7\Util\Tree;
 
-class CondtionTreeTest extends TestCase 
+class CondtionTreeTest extends TestCase
 {
 
-    public function testLeaf(): void 
+    public function testLeaf(): void
     {
         $leaf = new Leaf("hello");
         $this->assertEquals("hello", $leaf);
     }
 
-    public function testTree(): void 
+    public function testTree(): void
     {
         $left = new Leaf("left");
         $right = new Leaf("right");
@@ -29,7 +29,7 @@ class CondtionTreeTest extends TestCase
         $this->assertEquals($sql, $tree);
     }
 
-    public function testOr(): void 
+    public function testOr(): void
     {
         $left = new Leaf("left");
         $right = new Leaf("right");
@@ -42,7 +42,7 @@ class CondtionTreeTest extends TestCase
         $this->assertEquals($sql, $tree);
     }
 
-    public function testAnd(): void 
+    public function testAnd(): void
     {
         $left = new Leaf("left");
         $right = new Leaf("right");
@@ -54,5 +54,4 @@ class CondtionTreeTest extends TestCase
         $tree = $right->and($left);
         $this->assertEquals($sql, $tree);
     }
-
 }

@@ -26,8 +26,7 @@ trait LimitTrait
         if ($min === null) {
             $this->limit = $max;
             $this->offset = null;
-        }
-        else {
+        } else {
             $this->offset = $max;
             $this->limit = $min;
         }
@@ -37,7 +36,7 @@ trait LimitTrait
     /**
      * @return boolean
      */
-    public function isValidLimit(): bool 
+    public function isValidLimit(): bool
     {
         return $this->limit === null || ($this->offset === null || $this->offset <= $this->limit);
     }
@@ -47,6 +46,7 @@ trait LimitTrait
      */
     public function generateLimit(): string
     {
-        return ($this->limit !== null) ? (($this->offset !== null) ? "LIMIT $this->offset, $this->limit" : "LIMIT $this->limit") : "";
+        return ($this->limit === null) ? "" :
+        (($this->offset !== null) ? "LIMIT $this->offset, $this->limit" : "LIMIT $this->limit");
     }
 }

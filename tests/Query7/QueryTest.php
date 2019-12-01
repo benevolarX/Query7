@@ -4,24 +4,22 @@ declare(strict_types=1);
 namespace Tests\Query7;
 
 use PHPUnit\Framework\TestCase;
-use Query7\CrudQuery\{
-    AbstractQuery,
-    DeleteQuery,
-    DeleteQueryInterface,
-    InsertQuery, 
-    InsertQueryInterface, 
-    QueryInterface, 
-    SelectQuery,
-    SelectQueryInterface,
-    UpdateQuery,
-    UpdateQueryInterface
-};
+use Query7\CrudQuery\AbstractQuery;
+use Query7\CrudQuery\DeleteQuery;
+use Query7\CrudQuery\DeleteQueryInterface;
+use Query7\CrudQuery\InsertQuery;
+use Query7\CrudQuery\InsertQueryInterface;
+use Query7\CrudQuery\QueryInterface;
+use Query7\CrudQuery\SelectQuery;
+use Query7\CrudQuery\SelectQueryInterface;
+use Query7\CrudQuery\UpdateQuery;
+use Query7\CrudQuery\UpdateQueryInterface;
 use Query7\Query;
 
-class QueryTest extends TestCase 
+class QueryTest extends TestCase
 {
 
-    public function testInsert(): void 
+    public function testInsert(): void
     {
         $insert = Query::insert();
 
@@ -32,7 +30,7 @@ class QueryTest extends TestCase
         $this->assertEquals($insert instanceof Query, false);
     }
 
-    public function testSelect(): void 
+    public function testSelect(): void
     {
         $select = Query::select();
 
@@ -43,7 +41,7 @@ class QueryTest extends TestCase
         $this->assertEquals($select instanceof Query, false);
     }
 
-    public function testUpdate(): void 
+    public function testUpdate(): void
     {
         $update = Query::update();
 
@@ -54,7 +52,7 @@ class QueryTest extends TestCase
         $this->assertEquals($update instanceof Query, false);
     }
 
-    public function testDelete(): void 
+    public function testDelete(): void
     {
         $delete = Query::delete();
 
@@ -64,5 +62,4 @@ class QueryTest extends TestCase
         $this->assertEquals($delete instanceof DeleteQuery, true);
         $this->assertEquals($delete instanceof Query, false);
     }
-
 }

@@ -20,9 +20,8 @@ class Leaf extends ConditionTree
     /**
      * @return string
      */
-    public function generateTree(): string
+    protected function generateTree(): string
     {
         return $this->condition;
     }
-    
 }

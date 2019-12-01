@@ -8,7 +8,7 @@ abstract class ConditionTree
     /**
      * @return string
      */
-    abstract public function generateTree(): string;
+    abstract protected function generateTree(): string;
 
     /**
      * @return string
@@ -35,5 +35,4 @@ abstract class ConditionTree
     {
         return new Tree($this, $tree, 'AND');
     }
-
 }

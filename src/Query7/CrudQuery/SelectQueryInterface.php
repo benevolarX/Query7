@@ -16,5 +16,4 @@ interface SelectQueryInterface extends QueryInterface
      * @return self
      */
     public function columns(string ...$cols): self;
-    
 }

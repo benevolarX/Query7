@@ -2,7 +2,8 @@
 declare(strict_types=1);
 namespace Query7\Clause;
 
-use Query7\Util\{ConditionTree, Leaf};
+use Query7\Util\ConditionTree;
+use Query7\Util\Leaf;
 use Query7\CrudQuery\QueryInterface;
 
 trait GroupByHavingTrait
@@ -41,7 +42,7 @@ trait GroupByHavingTrait
     /**
      * @return boolean
      */
-    public function isValidGroupByHaving(): bool 
+    public function isValidGroupByHaving(): bool
     {
         return !empty($this->group) || $this->having === null;
     }
@@ -61,8 +62,7 @@ trait GroupByHavingTrait
      */
     protected function generateGroupBy(): string
     {
-        if (!empty($this->group)) 
-        {
+        if (!empty($this->group)) {
             $group = \join(', ', $this->group);
             return "GROUP BY $group";
         }
@@ -76,5 +76,4 @@ trait GroupByHavingTrait
     {
         return ($this->having !== null) ? "HAVING $this->having" : "";
     }
-
 }

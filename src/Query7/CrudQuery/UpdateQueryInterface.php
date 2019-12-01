@@ -15,5 +15,4 @@ interface UpdateQueryInterface extends QueryInterface
      * @return string
      */
     public function generateSet(): string;
-
 }
