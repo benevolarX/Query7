@@ -32,7 +32,7 @@ trait OnceTableTrait
     /**
      * @return boolean
      */
-    public function isValidTable(): bool
+    public function isValidOnceTable(): bool
     {
         return $this->table !== null && $this->table !== "";
     }

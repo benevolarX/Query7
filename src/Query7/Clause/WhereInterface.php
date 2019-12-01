@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace Query7\Clause;
 
+use Query7\Util\ConditionTree;
 use Query7\CrudQuery\QueryInterface;
 
 interface WhereInterface
