@@ -9,13 +9,20 @@ class Leaf extends ConditionTree
      */
     private $condition;
 
+    /**
+     * @param string $condition
+     */
     public function __construct(string $condition)
     {
         $this->condition = $condition;
     }
 
+    /**
+     * @return string
+     */
     public function generateTree(): string
     {
         return $this->condition;
     }
+    
 }

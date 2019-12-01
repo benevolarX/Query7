@@ -2,6 +2,7 @@
     "name": "benevolar-x/query7",
     "description": "php 7 query builder",
     "keywords": ["php7", "query", "builder", "mysql", "pdo", "fluent"],
+    "homepage": "https://github.com/benevolarX/Query7",
     "authors": [
         {
             "name": "benevolarX",

@@ -31,11 +31,15 @@ class Tree extends ConditionTree
         $this->op = $op;
     }
 
+    /**
+     * @return string
+     */
     public function generateTree(): string
     {
-        $a = $this->a->generateTree();
-        $b = $this->b->generateTree();
-        $op = $this->op;
-        return "($a $op $b)";
+        $left = $this->a->generateTree();
+        $right = $this->b->generateTree();
+        $operator = $this->op;
+        return "($left $operator $right)";
     }
+    
 }
