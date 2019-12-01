@@ -34,4 +34,26 @@ class GroupByHavingTest extends TestCase
         $this->assertEquals($group->generateGroupByHaving(), "");
         $this->assertEquals($group->isValidGroupByHaving(), false);
     }
+
+    public function testGroupByOnly(): void
+    {
+        $group = ($this->createGroupByHaving())->groupBy("hello");
+        $this->assertEquals($group->generateGroupByHaving(), "GROUP BY hello");
+        $this->assertEquals($group->isValidGroupByHaving(), true);
+    }
+
+    public function testMultipleGroupBy(): void
+    {
+        $group = ($this->createGroupByHaving())->groupBy("hello")->groupBy("world");
+        $this->assertEquals($group->generateGroupByHaving(), "GROUP BY world, hello");
+        $this->assertEquals($group->isValidGroupByHaving(), true);
+    }
+
+    public function testGroupByHaving(): void
+    {
+        $group = ($this->createGroupByHaving())->groupBy("hello")->having("world");
+        $sql = "GROUP BY hello HAVING world";
+        $this->assertEquals($group->generateGroupByHaving(), $sql);
+        $this->assertEquals($group->isValidGroupByHaving(), true);
+    }
 }
