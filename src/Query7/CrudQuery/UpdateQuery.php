@@ -21,9 +21,9 @@ class UpdateQuery extends AbstractQuery implements UpdateQueryInterface
 
     /**
      * @param array $vals
-     * @return self
+     * @return UpdateQuery
      */
-    public function set(array $vals): self
+    public function set(array $vals): UpdateQuery
     {
         foreach ($vals as $k => $v) {
             $this->vals[$k] = $v;

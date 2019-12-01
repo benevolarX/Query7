@@ -22,7 +22,7 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
      * @param string $table
      * @return InsertQueryInterface|InsertQuery
      */
-    public function into(string $table): InsertQueryInterface
+    public function into(string $table): InsertQuery
     {
         return $this->setTable($table);
     }
@@ -31,7 +31,7 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
      * @param string ...$col
      * @return InsertQueryInterface|InsertQuery
      */
-    public function column(string ...$col): InsertQueryInterface
+    public function column(string ...$col): InsertQuery
     {
         $this->columns = \array_merge($this->columns, $col);
         return $this;
@@ -41,7 +41,7 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
      * @param any ...$vals
      * @return InsertQueryInterface|InsertQuery
      */
-    public function values(...$vals): InsertQueryInterface
+    public function values(...$vals): InsertQuery
     {
         $this->vals = \array_merge($this->vals, ...$vals);
         return $this;

@@ -6,15 +6,16 @@ use Query7\Clause\LimitInterface as Limit;
 use Query7\Clause\OnceTableInterface as Once;
 use Query7\Clause\OrderByInterface as Order;
 use Query7\Clause\WhereInterface as Where;
+use Query7\CrudQuery\UpdateQuery;
 
 interface UpdateQueryInterface extends QueryInterface, Once, Where, Order, Limit
 {
 
     /**
      * @param array $vals
-     * @return self
+     * @return UpdateQuery
      */
-    public function set(array $vals): self;
+    public function set(array $vals): UpdateQuery;
 
     /**
      * @return string
