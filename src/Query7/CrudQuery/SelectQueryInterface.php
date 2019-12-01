@@ -15,11 +15,11 @@ interface SelectQueryInterface extends QueryInterface, From, Join, Group, Where,
      * @param string|null $alias
      * @return SelectQueryInterface
      */
-    public function column(string $col, ?string $alias = null): self;
+    public function column(string $col, ?string $alias = null): SelectQueryInterface;
 
     /**
      * @param string ...$cols
      * @return SelectQueryInterface
      */
-    public function columns(string ...$cols): self;
+    public function columns(string ...$cols): SelectQueryInterface;
 }
