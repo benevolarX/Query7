@@ -11,19 +11,19 @@ interface InsertQueryInterface extends QueryInterface, OnceTableInterface
      * @param string $table
      * @return InsertQueryInterface
      */
-    public function into(string $table): self;
+    public function into(string $table): InsertQueryInterface;
 
     /**
      * @param string ...$col
      * @return InsertQueryInterface
      */
-    public function column(string ...$col): self;
+    public function column(string ...$col): InsertQueryInterface;
 
     /**
      * @param any ...$vals
      * @return InsertQueryInterface
      */
-    public function values(...$vals): self;
+    public function values(...$vals): InsertQueryInterface;
 
     /**
      * @return string
