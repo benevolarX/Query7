@@ -52,9 +52,12 @@ trait GroupByHavingTrait
      */
     public function generateGroupByHaving(): string
     {
-        $group = $this->generateGroupBy();
-        $having = $this->generateHaving();
-        return "$group $having";
+        if ($this->isValidGroupByHaving()) {
+            $group = $this->generateGroupBy();
+            $having = $this->generateHaving();
+            return ($having === "") ? $group : "$group $having";
+        }
+        return "";
     }
 
     /**

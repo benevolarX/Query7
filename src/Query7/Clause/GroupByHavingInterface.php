@@ -27,5 +27,4 @@ interface GroupByHavingInterface
      * @return string
      */
     public function generateGroupByHaving(): string;
-
 }
