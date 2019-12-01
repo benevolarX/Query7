@@ -20,4 +20,5 @@ interface UpdateQueryInterface extends QueryInterface, Once, Where, Order, Limit
      * @return string
      */
     public function generateSet(): string;
+    
 }
