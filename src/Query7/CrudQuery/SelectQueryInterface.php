@@ -23,5 +23,4 @@ interface SelectQueryInterface extends QueryInterface, From, Join, Group, Where,
      * @return SelectQuery
      */
     public function columns(string ...$cols): SelectQuery;
-
 }
