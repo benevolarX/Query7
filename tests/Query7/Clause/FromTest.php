@@ -10,7 +10,7 @@ use Query7\Clause\FromTrait;
 class FromTest extends TestCase
 {
 
-    public function createFrom(): FromInterface
+    protected function createFrom(): FromInterface
     {
         return new class implements FromInterface {
             use FromTrait;
@@ -29,7 +29,8 @@ class FromTest extends TestCase
 
     public function testFromOnceTable(): void
     {
-        $from = ($this->createFrom())->from("hello");
+        $from = $this->createFrom();
+        $from->from("hello");
         $sql = "FROM hello";
         $this->assertEquals($from->generateFrom(), $sql);
         $this->assertEquals($from->isValidFrom(), true);
@@ -37,7 +38,8 @@ class FromTest extends TestCase
 
     public function testFromAlias(): void
     {
-        $from = ($this->createFrom())->from("hello", "h");
+        $from = $this->createFrom();
+        $from->from("hello", "h");
         $sql = "FROM hello AS h";
         $this->assertEquals($from->generateFrom(), $sql);
         $this->assertEquals($from->isValidFrom(), true);
@@ -45,7 +47,9 @@ class FromTest extends TestCase
 
     public function testFromMultipleTable(): void
     {
-        $from = ($this->createFrom())->from("hello", "h")->from("world");
+        $from = $this->createFrom();
+        $from->from("hello", "h");
+        $from->from("world");
         $sql = "FROM hello AS h, world";
         $this->assertEquals($from->generateFrom(), $sql);
         $this->assertEquals($from->isValidFrom(), true);

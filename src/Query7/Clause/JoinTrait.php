@@ -49,8 +49,8 @@ trait JoinTrait
      */
     protected function join(string $type, string $table, ?string $condition)
     {
-        $on = $condition === null ? "" : "ON $condition";
-        $this->join[] = "$type $table $on";
+        $on = $condition === null ? "" : " ON $condition";
+        $this->join[] = "$type $table" . $on;
         return $this;
     }
 

@@ -18,7 +18,7 @@ trait OrderByTrait
      */
     public function orderBy(string $order, ?bool $desc = false)
     {
-        $this->order[] = $desc ? "$order DESC" : $order;
+        $this->order[] = $desc ? "$order DESC" : "$order ASC";
         return $this;
     }
 

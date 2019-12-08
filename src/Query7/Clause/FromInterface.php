@@ -9,7 +9,7 @@ interface FromInterface
     /**
      * @param string $table
      * @param string|null $alias
-     * @return QueryInterface
+     * @return QueryInterface|FromInterface
      */
     public function from(string $table, ?string $alias = null);
 

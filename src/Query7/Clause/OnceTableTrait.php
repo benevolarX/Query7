@@ -17,14 +17,16 @@ trait OnceTableTrait
      */
     public function setTable(string $table)
     {
-        $this->table = $table;
+        if (!$this->isValidOnceTable()) {
+            $this->table = $table;
+        }
         return $this;
     }
 
     /**
      * @return string
      */
-    public function generateTable(): string
+    public function generateOnceTable(): string
     {
         return $this->table;
     }
@@ -34,6 +36,6 @@ trait OnceTableTrait
      */
     public function isValidOnceTable(): bool
     {
-        return $this->table !== null && $this->table !== "";
+        return $this->table !== "";
     }
 }

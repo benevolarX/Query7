@@ -16,7 +16,7 @@ interface OnceTableInterface
     /**
      * @return string
      */
-    public function generateTable(): string;
+    public function generateOnceTable(): string;
 
     /**
      * @return boolean

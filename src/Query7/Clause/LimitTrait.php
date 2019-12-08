@@ -24,12 +24,21 @@ trait LimitTrait
     public function limit(int $max = 1, ?int $min = null)
     {
         if ($min === null) {
-            $this->limit = $max;
-            $this->offset = null;
+            $this->setLimit($max);
         } else {
-            $this->offset = $max;
-            $this->limit = $min;
+            $this->setOffset($max);
+            $this->setLimit($min);
         }
+        return $this;
+    }
+
+    /**
+     * @param integer $offset
+     * @return QueryInterface
+     */
+    public function offset(int $offset)
+    {
+        $this->setOffset($offset);
         return $this;
     }
 
@@ -38,7 +47,7 @@ trait LimitTrait
      */
     public function isValidLimit(): bool
     {
-        return $this->limit === null || ($this->offset === null || $this->offset <= $this->limit);
+        return $this->limit !== null || $this->offset === null;
     }
 
     /**
@@ -48,5 +57,15 @@ trait LimitTrait
     {
         return ($this->limit === null) ? "" :
         (($this->offset !== null) ? "LIMIT $this->offset, $this->limit" : "LIMIT $this->limit");
+    }
+
+    private function setLimit(int $n)
+    {
+        $this->limit = ($n > 0) ? $n : null;
+    }
+
+    private function setOffset(int $n)
+    {
+        $this->offset = ($n > 0) ? $n : null;
     }
 }

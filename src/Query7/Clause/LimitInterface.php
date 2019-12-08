@@ -14,6 +14,12 @@ interface LimitInterface
     public function limit(int $min = 1, ?int $max = null);
 
     /**
+     * @param integer $offset
+     * @return QueryInterface
+     */
+    public function offset(int $offset);
+
+    /**
      * @return boolean
      */
     public function isValidLimit(): bool;

@@ -59,6 +59,10 @@ trait WhereTrait
      */
     public function generateWhere(): string
     {
-        return ($this->where !== null) ? "WHERE " . $this->where->generateTree() : "";
+        if ($this->where !== null) {
+            $conditions = (string) $this->where;
+            return "WHERE $conditions";
+        }
+        return "";
     }
 }
