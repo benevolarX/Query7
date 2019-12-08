@@ -4,7 +4,13 @@ namespace Query7\CrudQuery;
 
 interface QueryInterface
 {
+    /**
+     * @return boolean
+     */
+    public function isValidQuery(): bool;
+
+    /**
+     * @return string
+     */
     public function __toString(): string;
-    public function generateQuery(): string;
-    public function isValid(): bool;
 }

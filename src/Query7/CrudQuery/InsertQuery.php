@@ -31,7 +31,7 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
      * @param string ...$col
      * @return InsertQueryInterface|InsertQuery
      */
-    public function column(string ...$col): InsertQuery
+    public function columns(string ...$col): InsertQuery
     {
         $this->columns = \array_merge($this->columns, $col);
         return $this;
@@ -66,7 +66,7 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
     {
         if (!empty($this->vals)) {
             $vals = \join(', ', $this->vals);
-            return "( $vals )";
+            return $vals;
         }
         return "";
     }
@@ -74,9 +74,9 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
     /**
      * @return boolean
      */
-    public function isValid(): bool
+    public function isValidQuery(): bool
     {
-        $testTable = $this->isValidTable();
+        $testTable = $this->isValidOnceTable();
         $testVals = !empty($this->vals);
         return $testTable && $testVals;
     }
@@ -84,9 +84,9 @@ class InsertQuery extends AbstractQuery implements InsertQueryInterface
     /**
      * @return string
      */
-    public function generateQuery(): string
+    protected function generateQuery(): string
     {
-        $table = $this->generateTable();
+        $table = $this->generateOnceTable();
         $cols = $this->generateColumns();
         $vals = $this->generateValues();
         return "INSERT INTO $table $cols VALUES ( $vals ) ";

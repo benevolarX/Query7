@@ -17,17 +17,19 @@ class DeleteQuery extends AbstractQuery implements DeleteQueryInterface
     /**
      * @return boolean
      */
-    public function isValid(): bool
+    public function isValidQuery(): bool
     {
-        return $this->isValidOnceTable();
+        $table = $this->isValidOnceTable();
+        $limit = $this->isValidLimit();
+        return $table && $limit;
     }
 
     /**
      * @return string
      */
-    public function generateQuery(): string
+    protected function generateQuery(): string
     {
-        $table = $this->generateTable();
+        $table = $this->generateOnceTable();
         $where = $this->generateWhere();
         $order = $this->generateOrderBy();
         $limit = $this->generateLimit();

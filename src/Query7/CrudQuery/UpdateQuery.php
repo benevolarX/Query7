@@ -46,9 +46,9 @@ class UpdateQuery extends AbstractQuery implements UpdateQueryInterface
     /**
      * @return boolean
      */
-    public function isValid(): bool
+    public function isValidQuery(): bool
     {
-        $testTable = $this->isValidTable();
+        $testTable = $this->isValidOnceTable();
         $testVals = !empty($this->vals);
         return $testTable && $testVals;
     }
@@ -56,9 +56,9 @@ class UpdateQuery extends AbstractQuery implements UpdateQueryInterface
     /**
      * @return string
      */
-    public function generateQuery(): string
+    protected function generateQuery(): string
     {
-        $table = $this->generateTable();
+        $table = $this->generateOnceTable();
         $set = $this->generateSet();
         $where = $this->generateWhere();
         $order = $this->generateOrderBy();

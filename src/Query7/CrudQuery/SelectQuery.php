@@ -52,7 +52,7 @@ class SelectQuery extends AbstractQuery implements SelectQueryInterface
     /**
      * @return boolean
      */
-    public function isValid(): bool
+    public function isValidQuery(): bool
     {
         $testFrom = $this->isValidFrom();
         $testGroupByHaving = $this->isValidGroupByHaving();
@@ -63,7 +63,7 @@ class SelectQuery extends AbstractQuery implements SelectQueryInterface
     /**
      * @return string
      */
-    public function generateQuery(): string
+    protected function generateQuery(): string
     {
         $cols = empty($this->columns) ? '*' : join(', ', $this->columns);
         $fromTable = $this->generateFrom();
