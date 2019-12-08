@@ -9,6 +9,9 @@ use Query7\Query;
 
 class InsertTest extends TestCase
 {
+    /**
+     * @return InsertQuery
+     */
     protected function createInsert(): InsertQuery
     {
         return Query::insert();

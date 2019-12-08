@@ -9,6 +9,9 @@ use Query7\Query;
 
 class DeleteTest extends TestCase
 {
+    /**
+     * @return DeleteQuery
+     */
     protected function createDelete(): DeleteQuery
     {
         return Query::delete();
